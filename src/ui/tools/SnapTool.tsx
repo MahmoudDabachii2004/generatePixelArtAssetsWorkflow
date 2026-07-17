@@ -47,7 +47,7 @@ export function SnapTool() {
         {snap && (
           <div className="stat-row" style={{ marginTop: 14 }}>
             <span>natif <b>{snap.native.width}×{snap.native.height}</b></span>
-            <span>pixel <b>{snap.pixelSizeX.toFixed(1)}</b></span>
+            <span>pixel <b>{snap.pixelSize.toFixed(1)}</b></span>
             <span>confiance <b>{(snap.confidence * 100).toFixed(0)}%</b></span>
           </div>
         )}

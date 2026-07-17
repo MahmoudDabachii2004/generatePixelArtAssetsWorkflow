@@ -37,6 +37,8 @@ describe('prompts: chongdashu skeleton, ingest-tuned', () => {
     const out = buildActionPrompt(brief, { action: 'attack', direction: 'w', frames: 8, columns: 4, rows: 2 })
     expect(out.prompt).toContain('4 colonnes × 2 lignes')
     expect(out.prompt).toContain('AUCUNE ligne de grille')
+    // explicit frame-by-frame beats (chongdashu's action template)
+    expect(out.prompt).toContain('extension maximale')
   })
   it('walk prompt hammers the anti-drift rule (free grounded-walk path)', () => {
     const out = buildWalkPrompt(brief, 's', 8)

@@ -63,8 +63,8 @@ describe('snap: recovers the native grid and never over-shrinks', () => {
     expect(snap.cellsX).toBeLessThanOrEqual(6)
     expect(snap.cellsY).toBeGreaterThanOrEqual(6)
     expect(snap.cellsY).toBeLessThanOrEqual(8)
-    expect(snap.pixelSizeX).toBeGreaterThanOrEqual(9)
-    expect(snap.pixelSizeX).toBeLessThanOrEqual(15)
+    expect(snap.pixelSize).toBeGreaterThanOrEqual(9)
+    expect(snap.pixelSize).toBeLessThanOrEqual(15)
   })
 })
 

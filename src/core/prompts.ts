@@ -131,6 +131,51 @@ export function buildDirectionalPrompt(brief: CharacterBrief, direction: 'w' | '
   }
 }
 
+// Explicit frame-by-frame beats per action (chongdashu: "explicit is best;
+// fall back to loose if the model is inconsistent"). Injected into the board
+// prompt so the animation reads as a coherent sequence, not random poses.
+const ACTION_BEATS: Record<string, string[]> = {
+  attack: [
+    'Frame 1 : garde neutre, prêt.',
+    'Frame 2 : anticipation, léger recul.',
+    'Frame 3 : armement, arme levée.',
+    'Frame 4 : frappe — extension maximale.',
+    'Frame 5 : recul, l’arme repasse la neutre.',
+    'Frame 6 : accompagnement, l’élan continue.',
+    'Frame 7 : récupération vers la neutre.',
+    'Frame 8 : retour à la garde.',
+  ],
+  idle: [
+    'Cycle de respiration TRÈS subtil : frame 1 neutre, léger gonflement interne de la poitrine au milieu du cycle, retour. La dernière frame précède immédiatement la frame 1 (boucle parfaite, pas de frame dupliquée).',
+  ],
+  hurt: [
+    'Frame 1 : neutre.',
+    'Frame 2 : impact, tête et torse reculent.',
+    'Frame 3 : crispation maximale.',
+    'Frames suivantes : retour progressif à la neutre.',
+  ],
+  jump: [
+    'Frame 1 : accroupi (préparation).',
+    'Frame 2 : poussée / décollage.',
+    'Frame 3 : montée.',
+    'Frame 4 : apex.',
+    'Frame 5 : descente.',
+    'Frame 6 : réception amortie.',
+  ],
+  death: [
+    'Frame 1 : touché.',
+    'Frames 2-3 : chancelle.',
+    'Frames 4-6 : chute.',
+    'Frames suivantes : au sol, immobilisation.',
+  ],
+}
+
+function beatsFor(action: string, frames: number): string {
+  const beats = ACTION_BEATS[action.toLowerCase()]
+  if (beats) return `Découpage image par image :\n${beats.join('\n')}`
+  return `Découpage : crée ${frames} poses lisibles d’un « ${action} » cohérent. Frame 1 = pose de départ ; la dernière frame y revient sans dupliquer exactement la frame 1.`
+}
+
 export interface ActionPromptInput {
   action: string
   direction: Direction
@@ -144,6 +189,9 @@ export function buildActionPrompt(brief: CharacterBrief, input: ActionPromptInpu
     `À partir de l'image de référence (le personnage snappé, ${DIRECTION_LABEL[input.direction]}), produis ${input.frames} frames d'une animation « ${input.action} ».`,
     `Une seule image, grille ${input.columns} colonnes × ${input.rows} lignes, lue gauche→droite puis haut→bas. Chaque frame = le MÊME personnage, même identité, même échelle, même orientation ; seule la pose change entre les frames.`,
     `Pieds sur la MÊME ligne de base dans chaque frame, personnage centré horizontalement dans chaque case. Frame 1 et dernière frame = phases différentes (pas de saccade au bouclage).`,
+    ``,
+    beatsFor(input.action, input.frames),
+    ``,
     restrictiveBlock(brief),
     ``,
     canvasBlock(brief),
