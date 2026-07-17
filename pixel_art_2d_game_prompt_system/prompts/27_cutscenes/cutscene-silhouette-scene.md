@@ -1,0 +1,57 @@
+---
+id: "27_cutscenes/cutscene-silhouette-scene"
+title: "Cutscene Silhouette Scene"
+category: "27_cutscenes"
+kind: "generation"
+version: "1.0.0"
+custom_request_variable: "{{CUSTOM_REQUEST}}"
+variables:
+  - "{{CUSTOM_REQUEST}}"
+  - "{{ASSET_DESCRIPTION}}"
+  - "{{REFERENCE_IMAGE_1}}"
+  - "{{PIXEL_GRID_REFERENCE}}"
+  - "{{STYLE_REFERENCE_IMAGES}}"
+  - "{{PALETTE}}"
+  - "{{PIXEL_SIZE}}"
+  - "{{CANVAS_WIDTH}}"
+  - "{{CANVAS_HEIGHT}}"
+  - "{{BACKGROUND_MODE}}"
+  - "{{SPECIAL_REQUIREMENTS}}"
+  - "{{FORBIDDEN_ELEMENTS}}"
+---
+
+# Cutscene Silhouette Scene
+
+## Purpose
+
+Narrative and cutscene art prompt. Target: Cutscene Silhouette Scene.
+
+## Composition rule
+
+Compose the shared core modules first, then this specialized prompt, then one compatible direction/loop/layout module when needed. Do not concatenate unrelated specialized prompts.
+
+## Custom request injection
+
+`{{CUSTOM_REQUEST}}` is appended as the narrow, task-specific instruction. It may add detail, but it must not weaken reference, grid, palette, camera, loop, or output constraints.
+
+## Prompt
+
+{{COMPOSED_CORE_PROMPT}}
+
+SPECIFIC TASK: **Cutscene Silhouette Scene**
+
+Asset description:
+{{ASSET_DESCRIPTION}}
+
+Custom request injection:
+{{CUSTOM_REQUEST}}
+
+Special requirements:
+{{SPECIAL_REQUIREMENTS}}
+
+TASK-SPECIFIC RULES:
+- Maintain character identity and project style while allowing the requested storytelling pose or composition.
+- Do not mix gameplay sprite scale with portrait or cutscene scale without an explicit style bridge.
+
+OUTPUT:
+Follow the composed output contract exactly. Preserve the checkerboard reference only as a hidden one-pixel calibration source; never include it in the rendered asset.

@@ -1,0 +1,57 @@
+---
+id: "21_weather/weather-wind-debris"
+title: "Weather Wind Debris"
+category: "21_weather"
+kind: "generation"
+version: "1.0.0"
+custom_request_variable: "{{CUSTOM_REQUEST}}"
+variables:
+  - "{{CUSTOM_REQUEST}}"
+  - "{{ASSET_DESCRIPTION}}"
+  - "{{REFERENCE_IMAGE_1}}"
+  - "{{PIXEL_GRID_REFERENCE}}"
+  - "{{STYLE_REFERENCE_IMAGES}}"
+  - "{{PALETTE}}"
+  - "{{PIXEL_SIZE}}"
+  - "{{CANVAS_WIDTH}}"
+  - "{{CANVAS_HEIGHT}}"
+  - "{{BACKGROUND_MODE}}"
+  - "{{SPECIAL_REQUIREMENTS}}"
+  - "{{FORBIDDEN_ELEMENTS}}"
+---
+
+# Weather Wind Debris
+
+## Purpose
+
+Composable weather and atmosphere layer prompt. Target: Weather Wind Debris.
+
+## Composition rule
+
+Compose the shared core modules first, then this specialized prompt, then one compatible direction/loop/layout module when needed. Do not concatenate unrelated specialized prompts.
+
+## Custom request injection
+
+`{{CUSTOM_REQUEST}}` is appended as the narrow, task-specific instruction. It may add detail, but it must not weaken reference, grid, palette, camera, loop, or output constraints.
+
+## Prompt
+
+{{COMPOSED_CORE_PROMPT}}
+
+SPECIFIC TASK: **Weather Wind Debris**
+
+Asset description:
+{{ASSET_DESCRIPTION}}
+
+Custom request injection:
+{{CUSTOM_REQUEST}}
+
+Special requirements:
+{{SPECIAL_REQUIREMENTS}}
+
+TASK-SPECIFIC RULES:
+- Produce a tileable overlay or layer that can be composited independently.
+- Avoid baked camera movement and avoid permanent opaque coverage of gameplay silhouettes.
+
+OUTPUT:
+Follow the composed output contract exactly. Preserve the checkerboard reference only as a hidden one-pixel calibration source; never include it in the rendered asset.

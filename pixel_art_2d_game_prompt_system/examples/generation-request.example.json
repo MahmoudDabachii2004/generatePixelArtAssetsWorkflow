@@ -1,0 +1,19 @@
+{
+  "assetType": "character_animation",
+  "task": "idle",
+  "assetDescription": "The exact character from Reference Image 1",
+  "referenceImage1": "source-character.png",
+  "pixelGridReference": "assets/pixel-grid-calibration-1024.png",
+  "cameraView": "front",
+  "projection": "orthographic",
+  "directionCount": 1,
+  "frameCount": 8,
+  "frameRate": 24,
+  "loopType": "perfect_circular",
+  "pixelSize": 8,
+  "canvasWidth": 1024,
+  "canvasHeight": 1024,
+  "backgroundMode": "preserve_reference",
+  "outputLayout": "video_then_extract",
+  "customRequest": "Keep the scarf movement extremely subtle."
+}

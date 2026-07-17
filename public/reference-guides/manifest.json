@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "status": "CANONICAL_REQUIRED_RESOURCES",
+  "rule": "Use these exact bytes by default. Do not silently regenerate or substitute a visually similar checker because the prompt recipe was validated with these shipped files.",
+  "assets": [
+    {
+      "id": "guide_directional_anchor_1024",
+      "filename": "alternating-1024x1024.png",
+      "path": "resources/reference_guides/alternating-1024x1024.png",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB",
+      "sha256": "a5b38ebe555e08525972690b7eda425a721b389773ba5e81e6188159a6e230b0",
+      "byteSize": 16405,
+      "exactRgbColors": [
+        [
+          210,
+          210,
+          210
+        ],
+        [
+          232,
+          232,
+          232
+        ]
+      ],
+      "requiredFor": [
+        "directional-anchor-generation"
+      ],
+      "source": "chongdashu/ai-pixel-snapped-game-sprites references/grids",
+      "license": "MIT repository material; preserve repository license notice"
+    },
+    {
+      "id": "guide_pose_board_hires_4x3",
+      "filename": "alternating-2048x1536-4x3-pose-board.png",
+      "path": "resources/reference_guides/alternating-2048x1536-4x3-pose-board.png",
+      "width": 2048,
+      "height": 1536,
+      "mode": "RGB",
+      "sha256": "8da24c23e55bbf66f087787bed41d20770b0919b7923a4ccc107beb9941e2415",
+      "byteSize": 45764,
+      "exactRgbColors": [
+        [
+          210,
+          210,
+          210
+        ],
+        [
+          232,
+          232,
+          232
+        ]
+      ],
+      "requiredFor": [
+        "action-pose-board-generation-hires"
+      ],
+      "source": "chongdashu/ai-pixel-snapped-game-sprites references/grids",
+      "license": "MIT repository material; preserve repository license notice"
+    }
+  ]
+}
